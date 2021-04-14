@@ -7,19 +7,19 @@ $(document).ready(function(){
 var listItems = [
     {
         text : 'latte',
-        completed : 'true',
+        completed : true,
     },
     {
         text : 'pane',
-        completed : 'false',
+        completed : false,
     },
     {
         text : 'frutta',
-        completed : 'true',
+        completed : true,
     },
     {
         text : 'pasta',
-        completed : 'false',
+        completed : false,
     },
 ];
 
@@ -48,8 +48,24 @@ for( var i = 0; i < listItems.length; i++ ){
     // Questo sarà il NODO che poi andrà posizionato nel DOM
     clone.find('.text').text(content.text);
 
+    /*Prima di posizionare l'elemento facciamo una verifica nell'array della chiave completed. Se la classe è "true"
+    dovremo barrare il testo come al punto 4 perchè il punto è stato svolto.
+    Lo faremo aggiungendo la classe, esattamente come al punto 4. Se è "true" aggiungiamo la classe, se è "false" lasciamo così com'è*/
+    
+    
+    if( content.completed === true){
+
+        list.find('.text').addClass('completed');
+        
+    }
+    
+
+
+
     //Utilizzo la proprietà ".append()" per popolare la lista.
     //il NODO di arrivo è salvato nelle referenze list, quindi unisco nodo di arrivo con il nodo che ha il contenuto da posizionare
+
+
     list.append(clone);
 
 }
@@ -117,14 +133,27 @@ $('body').on('click', '.list li i', function(){
 
     $(this).parent().remove();
 
-
 });
 
 
 
+/**************************************************************** 
+ * 4. RENDERE TODO COMPLETATO O DA FARE
+****************************************************************/
 
+/* DOBBIAMO FARE IN MODO CHE AL CLICK DELL'ELEMENTO NELLA LISTA
+*  SI "DEPENNI" UTILIZZANDO UNA CLASSE CSS CHE VERRA APPLICATA AL * TESTO, AL CLICK DELL'UTENTE. SE CLICCA IL TO DO è COMPLETO*/
 
+// In questo caso dobbiamo agire come del punto precedente, richiamando l'elemento utilizzando once
 
+$('body').on('click', '.text', function(){
+
+    //Una volta individuato il nodo dobbiamo aggiungere o togliere la classe deindividuiamo l'evento con this
+    // Utilizziamo toggleClass() per aggiungere o eliminare la classe css dall'elemento HTML
+
+    $(this).toggleClass('completed');
+
+});
 
 
 

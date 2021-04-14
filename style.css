@@ -40,3 +40,7 @@ li i:hover{
     color: red;
 }
 
+
+li span.completed{
+    text-decoration:line-through;
+}
