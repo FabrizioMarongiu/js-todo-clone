@@ -30,7 +30,7 @@ var input = $('.add');
 var text = $('.text');
 var template = $('.template li')
 
-/**************************************************************** POPOLAZIONE TO DO LIST
+/**************************************************************** *1. POPOLAZIONE TO DO LIST
 ****************************************************************/ 
 
 // Con un ciclo for leggo ogni dato dell'array di oggetti
@@ -56,12 +56,12 @@ for( var i = 0; i < listItems.length; i++ ){
 
 
 
-/**************************************************************** INSERIMENTO TRAMITE INPUT
+/**************************************************************** *2. INSERIMENTO TRAMITE INPUT
 ****************************************************************/
 
 // UTILIZZO KEYUP PER GLI EVENTI DA TASTIERA
 input.keyup(function(event){
-    console.log(event.which);
+
     // Utilizzo un if che mi dirà quando l'utente premerà invio
     if(event.which === 13){
         // In questo punto cerco di prendere il testo inserito dall'utente. per questo utilizzo ".val()"
@@ -85,17 +85,40 @@ input.keyup(function(event){
              input.val('');
         }
     }
-})
+});
 
 
 
 
 /**************************************************************** 
- * 
+ * 3. RIMOZIONE TODO ITEM
 ****************************************************************/
 
 
+// Dobbiamo trovare l'icona che permette la cancellazione
 
+// A questo associo l'evento .click() utilizzando ".on()" per evitare che cancelli solamente le righe di codice che sono state caricate all'avvio dell'applicazione, ma anche quelle che eventualmente implementeremo
+
+
+// Sintassi:
+// ricerca dentro il body HTML
+// ".on()" richiama un determinato tipo di evento con altri due parametri:
+// Dentro le parentesi ci sarà il tipo di evento, in questo caso "click"
+// il nodo HTML da ricercare, in questo caso '.list li il che contiene l'elemento che andrà cliccato
+//la funzione o il codice da eseguire
+
+$('body').on('click', '.list li i', function(){
+
+    //una volta trovato l'elemento da cliccare dobbiamo indicare qual'è l'azione da intraprendere
+    // In questo caso dobbiamo ricercare tutto il contenuto del li per poterlo eliminare
+    // Utilizziamo $('this) per specificare il click solo in un elemento 
+    // Utilizziamo ".parent()" per andare al "papà" dell'elemento, in questo caso "li"
+    // Utilizziamo ".remove()" per eliminare l'elemento selezionato
+
+    $(this).parent().remove();
+
+
+});
 
 
 
