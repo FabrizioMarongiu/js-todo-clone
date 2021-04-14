@@ -27,7 +27,6 @@ var listItems = [
 // REFERENZE
 var list = $('.list');
 var input = $('.add');
-var text = $('.text');
 var template = $('.template li')
 
 /**************************************************************** *1. POPOLAZIONE TO DO LIST
@@ -52,11 +51,11 @@ for( var i = 0; i < listItems.length; i++ ){
     dovremo barrare il testo come al punto 4 perchè il punto è stato svolto.
     Lo faremo aggiungendo la classe, esattamente come al punto 4. Se è "true" aggiungiamo la classe, se è "false" lasciamo così com'è*/
     
-    
-    if( content.completed === true){
 
-        list.find('.text').addClass('completed');
-        
+    if( content.completed ){
+
+        clone.find('.text').addClass('completed');
+
     }
     
 
