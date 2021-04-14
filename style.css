@@ -1,0 +1,37 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main{
+    background-color: dodgerblue;
+    height: 100vh;
+    padding: 50px 0;
+}
+
+.app{
+    width: 500px;
+    height: 300px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: plum;
+    padding: 30px;
+}
+
+li{
+    list-style: none;
+    padding:15px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+li i{
+    cursor: pointer;
+    color: grey;
+}
+
+li i:hover{
+    color: red;
+}
+
